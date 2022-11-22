@@ -1,0 +1,55 @@
+.dashboard-container {
+    position: relative;
+    font-family: 'Oswald', sans-serif;
+    height: 100%;
+}
+
+.intro {
+    position: relative;
+    background-color: #d9d9d99e;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 18px;
+    box-shadow: .2rem .2rem 1rem 0rem #666;
+}
+
+.dashboard-container::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url(../img/mainimg.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+}
+
+button {
+    background-color: #46607b;
+    border: none;
+    color: rgba(255, 255, 255, 0.845);
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    transition:linear .3s;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #555;
+    color: rgba(255, 255, 255, 0.845);
+}
+
+p {
+    position: relative;
+}

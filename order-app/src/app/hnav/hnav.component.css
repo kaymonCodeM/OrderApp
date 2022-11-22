@@ -1,0 +1,32 @@
+p{
+    cursor: pointer;
+}
+div{
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #444;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li:hover,li:hover a{
+    cursor: pointer;
+    background-color: #46607b;
+  }
