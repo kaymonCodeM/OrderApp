@@ -15,6 +15,8 @@ public class HotelRoom {
     private int peopleAllowed;
     private boolean active;
 
+    private double roomCost;
+
     @OneToMany(mappedBy = "hotelRoom")
     @JsonIgnoreProperties("hotelRoom")
     private List<AddOn> addOns;
@@ -56,6 +58,14 @@ public class HotelRoom {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public double getRoomCost() {
+        return roomCost;
+    }
+
+    public void setRoomCost(double roomCost) {
+        this.roomCost = roomCost;
     }
 
     public List<AddOn> getAddOns() {

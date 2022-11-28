@@ -9,38 +9,34 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CardPaymentServiceImp implements CrudService<CardPayment> {
+public class CardPaymentServiceImp implements CrudService<CardPayment>{
     @Autowired
     CardPaymentRepo cardPaymentRepo;
 
     @Override
-    public List<CardPayment> getAll() {
+    public List<CardPayment> findAll() {
         return cardPaymentRepo.findAll();
     }
 
     @Override
-    public CardPayment create(CardPayment elm) {
-        return cardPaymentRepo.save(elm);
+    public CardPayment add(CardPayment c) {
+        return cardPaymentRepo.save(c);
     }
 
     @Override
-    public CardPayment update(CardPayment elm) {
-        return cardPaymentRepo.save(elm);
+    public CardPayment update(CardPayment c) {
+        return cardPaymentRepo.save(c);
     }
 
     @Override
-    public CardPayment getById(long id) {
-        Optional<CardPayment> a = cardPaymentRepo.findById(id);
-        return a.orElse(null);
+    public CardPayment findById(long id) {
+        Optional<CardPayment> c = cardPaymentRepo.findById(id);
+        return c.orElse(null);
     }
 
     @Override
     public String delete(long id) {
-        try {
-            cardPaymentRepo.deleteById(id);
-        }catch (Exception e){
-            return "ERROR: Card Payment was not found by id: " + id;
-        }
-        return "Success Card Payment deleted by id: " + id;
+        cardPaymentRepo.deleteById(id);
+        return "Card Payment deleted by id: " + id;
     }
 }

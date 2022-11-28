@@ -14,33 +14,28 @@ public class ContactServiceImp implements CrudService<Contact> {
     ContactRepo contactRepo;
 
     @Override
-    public List<Contact> getAll() {
+    public List<Contact> findAll() {
         return contactRepo.findAll();
     }
 
     @Override
-    public Contact create(Contact elm) {
-        return contactRepo.save(elm);
+    public Contact add(Contact c) {
+        return contactRepo.save(c);
     }
 
     @Override
-    public Contact update(Contact elm) {
-        return contactRepo.save(elm);
+    public Contact update(Contact c) {
+        return contactRepo.save(c);
     }
 
     @Override
-    public Contact getById(long id) {
-        Optional<Contact> a = contactRepo.findById(id);
-        return a.orElse(null);
+    public Contact findById(long id) {
+        return contactRepo.findById(id).orElse(null);
     }
 
     @Override
     public String delete(long id) {
-        try {
-            contactRepo.deleteById(id);
-        }catch (Exception e){
-            return "ERROR: Contact was not found by id: " + id;
-        }
-        return "Success Contact deleted by id: " + id;
+        contactRepo.deleteById(id);
+        return "Contact deleted by id: " + id;
     }
 }

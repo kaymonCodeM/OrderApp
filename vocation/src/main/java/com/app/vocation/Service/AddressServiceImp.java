@@ -15,33 +15,29 @@ public class AddressServiceImp implements CrudService<Address> {
     AddressRepo addressRepo;
 
     @Override
-    public List<Address> getAll() {
+    public List<Address> findAll() {
         return addressRepo.findAll();
     }
 
     @Override
-    public Address create(Address elm) {
-        return addressRepo.save(elm);
+    public Address add(Address a) {
+        return addressRepo.save(a);
     }
 
     @Override
-    public Address update(Address elm) {
-        return addressRepo.save(elm);
+    public Address update(Address a) {
+        return addressRepo.save(a);
     }
 
     @Override
-    public Address getById(long id) {
+    public Address findById(long id) {
         Optional<Address> a = addressRepo.findById(id);
         return a.orElse(null);
     }
 
     @Override
     public String delete(long id) {
-        try {
-            addressRepo.deleteById(id);
-        }catch (Exception e){
-            return "ERROR: Address was not found by id: " + id;
-        }
-        return "Success Address deleted by id: " + id;
+        addressRepo.deleteById(id);
+        return "Address deleted by id: "+id;
     }
 }
