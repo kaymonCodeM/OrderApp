@@ -64,13 +64,4 @@ public class MyUserDetails implements UserDetails {
         return this.active;
     }
 
-    @Override
-    public String toString() {
-        return "MyUserDetails{" +
-                "userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", active=" + active +
-                ", authorityList=" + authorityList +
-                '}';
-    }
 }

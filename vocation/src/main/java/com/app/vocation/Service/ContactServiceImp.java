@@ -5,13 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ContactServiceImp implements CrudService<Contact> {
 
     @Autowired
-    ContactRepo contactRepo;
+    private ContactRepo contactRepo;
 
     @Override
     public List<Contact> findAll() {

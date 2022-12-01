@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_reservation")
@@ -14,22 +15,7 @@ public class Reservation {
     private LocalDate checkIn;
     private LocalDate checkOut;
     private int people;
-    private String amenitiesSelected;
 
-    @OneToOne
-    @JoinColumn(name = "addressId",updatable = false)
-    @JsonIgnoreProperties("reservations")
-    private Address address;
-
-    @OneToOne
-    @JoinColumn(name = "contactId",updatable = false)
-    @JsonIgnoreProperties("reservations")
-    private Contact contact;
-
-    @OneToOne
-    @JoinColumn(name = "cardPaymentId",updatable = false)
-    @JsonIgnoreProperties("reservations")
-    private CardPayment cardPayment;
 
     @ManyToOne
     @JoinColumn(name = "hotelRoomId", updatable = false)
@@ -37,9 +23,13 @@ public class Reservation {
     private HotelRoom hotelRoom;
 
     @ManyToOne
-    @JoinColumn(name = "userId", updatable = false)
+    @JoinColumn(name = "userInfoId", updatable = false)
     @JsonIgnoreProperties("reservations")
-    private User user;
+    private UserInfo userInfo;
+
+    @OneToMany(mappedBy = "reservation")
+    @JsonIgnoreProperties("reservation")
+    private List<AddOn> addOns;
 
     public Reservation() {
     }
@@ -76,37 +66,6 @@ public class Reservation {
         this.people = people;
     }
 
-    public String getAmenitiesSelected() {
-        return amenitiesSelected;
-    }
-
-    public void setAmenitiesSelected(String amenitiesSelected) {
-        this.amenitiesSelected = amenitiesSelected;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public Contact getContact() {
-        return contact;
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    public CardPayment getCardPayment() {
-        return cardPayment;
-    }
-
-    public void setCardPayment(CardPayment cardPayment) {
-        this.cardPayment = cardPayment;
-    }
 
     public HotelRoom getHotelRoom() {
         return hotelRoom;
@@ -116,11 +75,19 @@ public class Reservation {
         this.hotelRoom = hotelRoom;
     }
 
-    public User getUser() {
-        return user;
+    public UserInfo getUserInfo() {
+        return userInfo;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
+    public List<AddOn> getAddOns() {
+        return addOns;
+    }
+
+    public void setAddOns(List<AddOn> addOns) {
+        this.addOns = addOns;
     }
 }

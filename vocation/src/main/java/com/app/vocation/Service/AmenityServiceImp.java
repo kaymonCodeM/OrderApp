@@ -4,16 +4,18 @@ import com.app.vocation.Entity.AddOn;
 import com.app.vocation.Entity.Amenity;
 import com.app.vocation.Repo.AmenityRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class AmenityServiceImp implements CrudService<Amenity> {
 
     @Autowired
-    AmenityRepo amenityRepo;
+    private AmenityRepo amenityRepo;
 
     @Autowired
-    AddOnService addOnService;
+    private AddOnServiceImp addOnServiceImp;
 
     @Override
     public List<Amenity> findAll() {
@@ -37,8 +39,9 @@ public class AmenityServiceImp implements CrudService<Amenity> {
 
     @Override
     public String delete(long id) {
-        for (AddOn a: addOnService.findByAmenityId(id)){
-            System.out.println(addOnService.delete(a.getAddOnId()));
+        Amenity amenity = findById(id);
+        for (AddOn a: amenity.getAddOns()){
+            System.out.println(addOnServiceImp.delete(a.getAddOnId()));
         }
         amenityRepo.deleteById(id);
         return "Amenity deleted by id: " + id;

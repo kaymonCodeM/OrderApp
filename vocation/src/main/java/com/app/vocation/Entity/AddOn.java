@@ -17,9 +17,9 @@ public class AddOn {
     private Amenity amenity;
 
     @ManyToOne
-    @JoinColumn(name = "hotelRoomId",updatable = false)
+    @JoinColumn(name = "reservationId",updatable = false)
     @JsonIgnoreProperties("addOns")
-    private HotelRoom hotelRoom;
+    private Reservation reservation;
 
     public AddOn() {
     }
@@ -40,11 +40,11 @@ public class AddOn {
         this.amenity = amenity;
     }
 
-    public HotelRoom getHotelRoom() {
-        return hotelRoom;
+    public Reservation getReservation() {
+        return reservation;
     }
 
-    public void setHotelRoom(HotelRoom hotelRoom) {
-        this.hotelRoom = hotelRoom;
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
 }

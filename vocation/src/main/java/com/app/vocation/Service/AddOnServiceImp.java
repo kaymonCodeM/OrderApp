@@ -3,22 +3,14 @@ package com.app.vocation.Service;
 import com.app.vocation.Entity.AddOn;
 import com.app.vocation.Repo.AddOnRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class AddOnServiceImp implements AddOnService{
+@Service
+public class AddOnServiceImp implements CrudService<AddOn>{
     @Autowired
-    AddOnRepo addOnRepo;
-
-    @Override
-    public List<AddOn> findByAmenityId(long amenityId){
-        return addOnRepo.findAddOnsByAmenityId(amenityId);
-    }
-
-    @Override
-    public List<AddOn> findByReservationId(long reservationId){
-        return addOnRepo.findAddOnsByReservationId(reservationId);
-    }
+    private AddOnRepo addOnRepo;
 
     @Override
     public List<AddOn> findAll() {
@@ -32,16 +24,18 @@ public class AddOnServiceImp implements AddOnService{
 
     @Override
     public AddOn update(AddOn elm) {
-        return null;
+        return addOnRepo.save(elm);
     }
 
     @Override
     public AddOn findById(long id) {
-        return null;
+
+        return addOnRepo.findById(id).orElse(null);
     }
 
     @Override
     public String delete(long id) {
-        return null;
+        addOnRepo.deleteById(id);
+        return "Add on deleted by id: " + id;
     }
 }

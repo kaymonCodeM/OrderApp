@@ -12,7 +12,7 @@ import java.util.Optional;
 public class AddressServiceImp implements CrudService<Address> {
 
     @Autowired
-    AddressRepo addressRepo;
+    private AddressRepo addressRepo;
 
     @Override
     public List<Address> findAll() {

@@ -16,9 +16,10 @@ public class CardPayment {
     private LocalDate ExpirationDate;
     private int cvv;
 
-    @OneToOne(mappedBy = "cardPayment")
+    @OneToOne
+    @JoinColumn(name = "userInfoId")
     @JsonIgnoreProperties("cardPayment")
-    private Reservation reservation;
+    private UserInfo userInfo;
 
     public CardPayment() {
     }
@@ -63,11 +64,11 @@ public class CardPayment {
         this.cvv = cvv;
     }
 
-    public Reservation getReservation() {
-        return reservation;
+    public UserInfo getUserInfo() {
+        return userInfo;
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 }

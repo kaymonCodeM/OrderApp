@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class CardPaymentServiceImp implements CrudService<CardPayment>{
     @Autowired
-    CardPaymentRepo cardPaymentRepo;
+    private CardPaymentRepo cardPaymentRepo;
 
     @Override
     public List<CardPayment> findAll() {

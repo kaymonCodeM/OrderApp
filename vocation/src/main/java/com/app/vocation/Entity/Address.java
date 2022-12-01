@@ -16,9 +16,10 @@ public class Address {
     private String city;
     private String zip;
 
-    @OneToOne(mappedBy = "address")
+    @OneToOne
+    @JoinColumn(name = "userInfoId")
     @JsonIgnoreProperties("address")
-    private Reservation reservation;
+    private UserInfo userInfo;
 
     public Address() {
     }
@@ -71,11 +72,11 @@ public class Address {
         this.zip = zip;
     }
 
-    public Reservation getReservation() {
-        return reservation;
+    public UserInfo getUserInfo() {
+        return userInfo;
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 }

@@ -19,10 +19,6 @@ public class HotelRoom {
 
     @OneToMany(mappedBy = "hotelRoom")
     @JsonIgnoreProperties("hotelRoom")
-    private List<AddOn> addOns;
-
-    @OneToMany(mappedBy = "hotelRoom")
-    @JsonIgnoreProperties("hotelRoom")
     private List<Reservation> reservations;
 
     public HotelRoom() {
@@ -68,13 +64,6 @@ public class HotelRoom {
         this.roomCost = roomCost;
     }
 
-    public List<AddOn> getAddOns() {
-        return addOns;
-    }
-
-    public void setAddOns(List<AddOn> addOns) {
-        this.addOns = addOns;
-    }
 
     public List<Reservation> getReservations() {
         return reservations;

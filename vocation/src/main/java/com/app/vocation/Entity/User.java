@@ -3,7 +3,6 @@ package com.app.vocation.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "tbl_user")
@@ -16,14 +15,10 @@ public class User {
     private boolean active;
     private String roles;
 
-    @OneToOne
-    @JoinColumn(name = "saveContactId",updatable = false)
+    @OneToOne(mappedBy = "user")
     @JsonIgnoreProperties("user")
-    private SaveContact saveContact;
+    private UserInfo UserInfo;
 
-    @OneToMany(mappedBy = "user")
-    @JsonIgnoreProperties("user")
-    private List<Reservation> reservations;
 
     public User() {
     }
@@ -68,19 +63,11 @@ public class User {
         this.roles = roles;
     }
 
-    public SaveContact getSaveContact() {
-        return saveContact;
+    public com.app.vocation.Entity.UserInfo getUserInfo() {
+        return UserInfo;
     }
 
-    public void setSaveContact(SaveContact saveContact) {
-        this.saveContact = saveContact;
-    }
-
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
-
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setUserInfo(com.app.vocation.Entity.UserInfo userInfo) {
+        UserInfo = userInfo;
     }
 }

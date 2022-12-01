@@ -15,9 +15,10 @@ public class Contact {
     private String email;
     private String phone;
 
-    @OneToOne(mappedBy = "contact")
+    @OneToOne
+    @JoinColumn(name = "userInfoId")
     @JsonIgnoreProperties("contact")
-    private Reservation reservation;
+    private UserInfo userInfo;
 
     public Contact() {
     }
@@ -62,11 +63,11 @@ public class Contact {
         this.phone = phone;
     }
 
-    public Reservation getReservation() {
-        return reservation;
+    public UserInfo getUserInfo() {
+        return userInfo;
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 }
