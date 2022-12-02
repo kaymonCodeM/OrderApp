@@ -4,6 +4,7 @@ Database:
 
 ![image](https://user-images.githubusercontent.com/73083538/205366187-11a3de3f-88bc-43a1-b6d4-b221b285c0cc.png)
 
+https://online.visual-paradigm.com/diagrams/features/erd-tool/
 
 RestAPI using Java SpringBoot and JPA.
 
