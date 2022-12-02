@@ -15,6 +15,8 @@ public class HotelRoom {
     private int peopleAllowed;
     private boolean active;
 
+    private String imgUrl;
+
     private double roomCost;
 
     @OneToMany(mappedBy = "hotelRoom")
@@ -71,5 +73,13 @@ public class HotelRoom {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
