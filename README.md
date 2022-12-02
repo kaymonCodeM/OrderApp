@@ -1,5 +1,8 @@
 # Hotel Reservation App
 
+Database:
+
+![image](https://user-images.githubusercontent.com/73083538/205366187-11a3de3f-88bc-43a1-b6d4-b221b285c0cc.png)
 
 
 RestAPI using Java SpringBoot and JPA.
@@ -32,6 +35,8 @@ Dependencies:
 	</dependencies>
 
 SpringBoot Security using SpringBoots Oauth2 for JWT Tokens.
+
+Pasword incription: Bycript
 
 url-> http://localhost:8080/token
 
