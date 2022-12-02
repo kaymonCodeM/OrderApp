@@ -1,5 +1,6 @@
 package com.app.vocation.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -26,7 +27,7 @@ public class UserInfo {
 
     @OneToOne
     @JoinColumn(name = "userId")
-    @JsonIgnoreProperties("userInfo")
+    @JsonIgnore
     private User user;
 
     @OneToMany(mappedBy = "userInfo")

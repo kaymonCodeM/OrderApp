@@ -1,5 +1,6 @@
 package com.app.vocation.Entity;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -16,7 +17,6 @@ public class User {
     private String roles;
 
     @OneToOne(mappedBy = "user")
-    @JsonIgnoreProperties("user")
     private UserInfo UserInfo;
 
 
